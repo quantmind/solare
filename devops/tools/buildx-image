@@ -8,4 +8,4 @@ docker buildx build ${ARGS} \
     -f devops/images/${IMAGE}/Dockerfile \
     -o type=docker \
     --cache-from ${DOCKER_REPO} \
-    -t ${NAME} -t ${DOCKER_REPO} .
+    -t ${REPO_NAME} -t ${DOCKER_REPO} .
