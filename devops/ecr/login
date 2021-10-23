@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "Logging in to ECR"
+source ./devops/ecr/common
+aws ecr get-login-password | docker login -u AWS --password-stdin ${DOCKER_URL}

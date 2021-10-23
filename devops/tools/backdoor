@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rlwrap nc localhost ${SERVICE_BACKDOOR_PORT}

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+source ./devops/tools/git-vars $1 $2
+
+echo "branch: ${GIT_BRANCH}"
+echo "version: ${GIT_COMMIT}"
+
+PREFIX=${DOCKER_TAG_PREFIX:-}
+REPOTAG0=${DOCKER_REPO}:${GIT_COMMIT}
+REPOTAG=${DOCKER_REPO}:${PREFIX}${GIT_COMMIT}
+
+docker tag ${NAME} ${REPOTAG0}
+docker tag ${NAME} ${REPOTAG}
+docker push "${REPOTAG}"
+
+PREFIX_LATEST=${DOCKER_TAG_PREFIX:-latest}
+docker tag ${NAME} "${DOCKER_REPO}:${PREFIX_LATEST}"
+if [[ ${GIT_BRANCH} == master ]]; then
+    docker push "${DOCKER_REPO}:${PREFIX_LATEST}"
+fi

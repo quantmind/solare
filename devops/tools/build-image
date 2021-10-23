@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# build image
+source ./devops/tools/git-vars $1 $2
+ARGS="${@:3}"
+
+docker build ${ARGS} \
+    -f devops/images/${IMAGE}/Dockerfile \
+    -t ${REPO_NAME} .

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+./devops/ecr/login
+
+echo "------------------------------------------"
+echo ""
+echo "Logging in to Docker Hub"
+docker login -u lsbardel -p ${DOCKER_HUB_TOKEN}

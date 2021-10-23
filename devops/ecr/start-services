@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+cd ..
+git clone https://${GITHUB_TOKEN}@github.com/quantmind/devops.git devops
+cd devops
+make services-ci

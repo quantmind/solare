@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ORG=$1
+REPO=$2
+cd ..
+git clone https://${GITHUB_TOKEN}@github.com/${ORG}/${REPO}.git ${REPO}

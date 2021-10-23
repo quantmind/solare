@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source ./devops/github/common
+./devops/tools/buildx-image "$@"

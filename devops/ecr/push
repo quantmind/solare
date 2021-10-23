@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source ./devops/ecr/common
+./devops/tools/image-push "$@"

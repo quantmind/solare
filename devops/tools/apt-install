@@ -1,0 +1,12 @@
+
+sudo apt update
+sudo apt -q -y install --no-install-recommends \
+    inotify-tools \
+    zlib1g-dev \
+    libssl-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    lzma-dev
+
+sudo pip3 install -U pip docker-compose virtualenv

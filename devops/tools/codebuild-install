@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+BUILDX=v0.6.3
+
+apt update
+# apt upgrade -y -qq
+# Install buildx
+curl -JLO https://github.com/docker/buildx/releases/download/${BUILDX}/buildx-${BUILDX}.linux-amd64
+mkdir -p ~/.docker/cli-plugins
+mv buildx-${BUILDX}.linux-amd64 ~/.docker/cli-plugins/docker-buildx
+chmod a+x ~/.docker/cli-plugins/docker-buildx
+docker version
+docker buildx version

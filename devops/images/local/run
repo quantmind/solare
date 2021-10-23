@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+DOCKER_HOME=/home/${USER}
+#
+mkdir -p $PWD/.temp
+
+touch $PWD/.temp/.bash_history
+touch $PWD/.local.env
+touch $PWD/.env
+
+docker run --rm -it \
+-e EDITOR=vim \
+-e HIST_FILE=${DOCKER_HOME}/.bash_history \
+-v $HOME/.ssh:$DOCKER_HOME/.ssh \
+-v $PWD/.temp/.bash_history:${DOCKER_HOME}/.bash_history \
+-v $PWD:${DOCKER_HOME}/solare \
+--env-file $PWD/.env \
+--env-file $PWD/.local.env \
+quantmind-solana-local bash
