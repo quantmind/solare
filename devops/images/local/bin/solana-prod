@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+solana config set --url https://api.mainnet-beta.solana.com

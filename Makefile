@@ -22,3 +22,12 @@ solana:				## enter solana image
 
 build:				## build solana programs
 	cargo build
+
+
+install-dev:			## install anchor version manager (avm)
+	cargo install --features dev
+
+
+update-anchor:			## install the latest verison of anchor client
+	avm install latest
+	avm use latest

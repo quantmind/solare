@@ -1,6 +1,6 @@
 # Solare
 
-Tooling for interacting with [solana](https://solana.com/) blockchain.
+Tooling for interacting with [solana](https://solana.com/) blockchain with examples of solana programs.
 
 
 ## Setup
