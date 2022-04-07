@@ -40,3 +40,9 @@ solana-keygen pubkey ~/.solana-wallets/my-keypair.json
 ## Update Image
 
 Use the latest [release](https://github.com/solana-labs/solana/releases/latest) tag when updating the Dockerfile.
+
+## Useful Repos
+
+* [solana-labs](https://github.com/solana-labs) - Solana foundation repos
+* [project-serum](https://github.com/project-serum) - Serum DEX and anchor framework for aolana programs
+* [ironaddicteddog](https://github.com/ironaddicteddog) - few anchor solana program implementation
