@@ -1,7 +1,7 @@
 FROM --platform=$BUILDPLATFORM ubuntu:20.04
 LABEL maintainer quantmind
 
-ARG sol_version=1.8.1
+ARG sol_version=1.10.6
 
 RUN apt update &&\
     apt install -y \

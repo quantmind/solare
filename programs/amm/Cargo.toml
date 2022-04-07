@@ -1,0 +1,9 @@
+[package]
+name = "amm"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+anchor-lang = "^0.23.0"
+solana-program = "^1.8.14"

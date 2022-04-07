@@ -3,7 +3,7 @@
 DOCKER_HOME=/home/${USER}
 #
 mkdir -p ${PWD}/.temp
-mkdir ${HOME}/.solana-wallets
+mkdir -p ${HOME}/.solana-wallets
 #
 touch ${PWD}/.temp/.bash_history
 touch ${PWD}/.local.env

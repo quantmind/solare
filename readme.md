@@ -6,7 +6,7 @@ Tooling for interacting with [solana](https://solana.com/) blockchain.
 ## Setup
 
 * These tools require docker installed into your system
-* Build the image with `make image-solana`
+* Build the solana image with `make image-solana`
 * Enter the image with `make solana`
 * Interact with `solana` cli
   ```
@@ -36,3 +36,7 @@ To show the public key
 ```
 solana-keygen pubkey ~/.solana-wallets/my-keypair.json
 ```
+
+## Update Image
+
+Use the latest [release](https://github.com/solana-labs/solana/releases/latest) tag when updating the Dockerfile.

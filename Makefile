@@ -6,10 +6,6 @@ help:
 	@echo ======================================================================================
 
 
-devops-copy:		## create a copy of devops/bin during development
-	@../devops/devops/dev/copy-to-repo
-
-
 image-solana:			## build solana image
 	@./devops/ecr/buildx-image solana
 
@@ -22,3 +18,7 @@ image-solana-local:		## build solana image for local terminal
 solana:				## enter solana image
 	@make image-solana-local
 	@./devops/images/local/run
+
+
+build:				## build solana programs
+	cargo build
