@@ -2,15 +2,21 @@ use anchor_lang::prelude::*;
 
 pub mod errors;
 pub mod mm;
+pub mod fees;
+
+use crate::mm::MM;
+use crate::fees::FeesInput;
+
 
 declare_id!("Ct6fnNMhwq2vBonYjsjDZjrtaY4o4bcxppVGWz7QWM2d");
+
 
 #[program]
 pub mod amm {
     use super::*;
 
     /// Initialize the AMM program
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+    pub fn initialize(ctx: Context<Initialize>, fees_input: FeesInput) -> Result<()> {
         // check if the account is already initialized
         if ctx.accounts.amm.is_initialized {
             return Err(errors::AmmError::AlreadyInUse.into());
