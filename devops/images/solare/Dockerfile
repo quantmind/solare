@@ -3,10 +3,12 @@ LABEL maintainer quantmind
 
 ARG sol_version=1.10.6
 
-COPY ./devops/images/solare/install install
+COPY ./devops/images/solare/install/apt install_apt
+RUN ./install_apt && rm install_apt
 
-#RUN ./install/apt
-#RUN ./install/rust
+COPY ./devops/images/solare/install/rust install_rust
+RUN ./install_rust && rm install_rust
+
 
 
 #RUN sh -c "$(curl -sSfL https://release.solana.com/v${sol_version}/install)"

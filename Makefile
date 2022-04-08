@@ -7,7 +7,7 @@ help:
 
 
 image-solare:			## build solare image
-	@./devops/github/buildx-image solare solare
+	@./devops/github/build-image solare solare
 
 image-solare-local:		## build solare image for local terminal
 	@./devops/tools/build-image \

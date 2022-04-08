@@ -22,4 +22,4 @@ jobs:
       - name: tests
         run: make tests
       - name: push image to github repo
-        run: ./devops/github/push solare quantmind/solare/solare
+        run: ./devops/github/push solare quantmind/solare
