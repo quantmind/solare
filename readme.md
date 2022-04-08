@@ -20,24 +20,23 @@ Tooling for interacting with [solana](https://solana.com/) blockchain with examp
 
 ## [Solana Clusters](https://docs.solana.com/clusters)
 
-To connect to devnet
-```
-solana config set --url https://api.devnet.solana.com
-```
+Enter the image via `make solare`
+
+* `solana-local` to connect to the running local `solana-test-validator`
+* `solana-dev` to connect to devnet
+* `solana-prod` to connect to mainnet
 
 ## Wallets
 
 To play around with the image you can start by creating [file system wallets](https://docs.solana.com/wallet-guide/file-system-wallet) (bear in mind that these are the most unsecure wallets and should be used only when interacting with the `devnet`).
 
-The image mount the `$HOME/.solana-wallets` directory so that you can create file wallets persisting on your hard disk:
-
 ```
-solana-keygen new --outfile ~/.solana-wallets/my-keypair.json
+solana-keygen new
 ```
 
 To show the public key
 ```
-solana-keygen pubkey ~/.solana-wallets/my-keypair.json
+solana-keygen pubkey
 ```
 
 ## Update Image
