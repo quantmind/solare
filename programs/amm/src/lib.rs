@@ -23,7 +23,7 @@ pub mod amm {
         // account info key
         let ai_key = ctx.accounts.amm.to_account_info().key.to_bytes();
 
-        let (authority, bump_seed) = Pubkey::find_program_address(
+        let (_auth, _seed) = Pubkey::find_program_address(
             &[&ai_key],
             ctx.program_id,
         );

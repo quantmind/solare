@@ -12,11 +12,11 @@ pub struct UniSwap;
 
 
 impl MM for UniSwap {
-    fn add(&mut self, token_a_amount: u128, token_b_amount: u128) {
+    fn add(&mut self, _token_a_amount: u128, _token_b_amount: u128) {
 
     }
 
-    fn withdraw(&mut self, token_a_amount: u128, token_b_amount: u128) {
+    fn withdraw(&mut self, _token_a_amount: u128, _token_b_amount: u128) {
 
     }
 }
