@@ -1,5 +1,7 @@
 # Solare
 
+[![build](https://github.com/quantmind/solare/actions/workflows/build.yml/badge.svg)](https://github.com/quantmind/solare/actions/workflows/build.yml)
+
 Tooling for interacting with [solana](https://solana.com/) blockchain with examples of solana programs.
 
 
