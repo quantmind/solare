@@ -3,7 +3,7 @@
 DOCKER_HOME=/home/${USER}
 #
 mkdir -p ${PWD}/.temp
-mkdir -p ${HOME}/.solana-wallets
+mkdir -p ${HOME}/.config
 #
 touch ${PWD}/.temp/.bash_history
 touch ${PWD}/.local.env
@@ -14,9 +14,9 @@ docker run --rm -it \
 -e HIST_FILE=${DOCKER_HOME}/.bash_history \
 -v $HOME/.ssh:$DOCKER_HOME/.ssh \
 -v $HOME/.config:$DOCKER_HOME/.config \
--v $HOME/.solana-wallets:$DOCKER_HOME/.solana-wallets \
 -v $PWD/.temp/.bash_history:${DOCKER_HOME}/.bash_history \
--v $PWD:${DOCKER_HOME}/solare \
+-v $PWD:/solare \
 --env-file $PWD/.env \
 --env-file $PWD/.local.env \
-quantmind-solana-local bash
+--network solare_default \
+quantmind-solare-local bash

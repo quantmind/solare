@@ -1,0 +1,25 @@
+name: build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.QMBOT_GITHUB_TOKEN }}
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: login to github docker repo
+        run: ./devops/github/login
+      - name: pull latest image from github repo
+        run: ./devops/github/pull devops quantmind/solare/solare || true
+      - name: login to docker hub
+        run: docker login -u lsbardel -p ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: build image-solare
+        run: make image-solare
+      - name: tests
+        run: make tests
+      - name: push image to github repo
+        run: ./devops/github/push solare quantmind/solare/solare

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-source ./devops/tools/git-vars $1 $2
-
-docker pull ${DOCKER_REPO}
-docker tag ${DOCKER_REPO} ${NAME}
-# list images
-echo "images tagged with ${NAME}"
-docker images | grep ${NAME}

@@ -1,22 +1,31 @@
+use anchor_lang::prelude::*;
 
 
-pub trait MM {
-    // add liquidity to the market maker
-    fn add(&mut self, token_a_amount: u128, token_b_amount: u128);
-    // withdraw from the liquity pool
-    fn withdraw(&mut self, token_a_amount: u128, token_b_amount: u128);
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Default)]
+pub struct Fees {
+    pub trade_fee_numerator: u64,
+    pub trade_fee_denominator: u64,
+    pub owner_trade_fee_numerator: u64,
+    pub owner_trade_fee_denominator: u64,
+    pub owner_withdraw_fee_numerator: u64,
+    pub owner_withdraw_fee_denominator: u64,
+    pub host_fee_numerator: u64,
+    pub host_fee_denominator: u64,
 }
 
-// A uniswap v2 market maker
-pub struct UniSwap;
 
-
-impl MM for UniSwap {
-    fn add(&mut self, token_a_amount: u128, token_b_amount: u128) {
-
-    }
-
-    fn withdraw(&mut self, token_a_amount: u128, token_b_amount: u128) {
-
-    }
+#[account]
+pub struct Amm {
+    /// Owner of the amm
+    pub owner_key: Pubkey,
+    ///
+    pub initializer_deposit_token_account: Pubkey,
+    /// Address of token A liquidity account
+    pub token_a_account: Pubkey,
+    /// Address of token B liquidity account
+    pub token_b_account: Pubkey,
+    /// Is the swap initialized, with data written to it
+    pub is_initialized: bool,
+    /// Fees associated with MM
+    pub fees: Fees,
 }

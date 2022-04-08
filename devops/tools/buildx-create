@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-# build 64 bit editions only
-docker buildx create --name metablock --platform linux/amd64,linux/arm64
-docker buildx use metablock

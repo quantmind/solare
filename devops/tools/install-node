@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-wget -nv https://deb.nodesource.com/setup_14.x -O nodesource_setup.sh
-bash nodesource_setup.sh
-apt -y install --no-install-recommends nodejs
-rm -rf nodesource_setup.sh

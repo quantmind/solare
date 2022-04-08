@@ -2,10 +2,8 @@ use anchor_lang::prelude::*;
 
 pub mod errors;
 pub mod mm;
-pub mod fees;
+pub mod logic;
 
-use crate::mm::MM;
-use crate::fees::FeesInput;
 
 
 declare_id!("Ct6fnNMhwq2vBonYjsjDZjrtaY4o4bcxppVGWz7QWM2d");
@@ -15,15 +13,26 @@ declare_id!("Ct6fnNMhwq2vBonYjsjDZjrtaY4o4bcxppVGWz7QWM2d");
 pub mod amm {
     use super::*;
 
-    /// Initialize the AMM program
-    pub fn initialize(ctx: Context<Initialize>, fees_input: FeesInput) -> Result<()> {
+    /// Initialize a new AMM program
+    pub fn initialize(ctx: Context<Initialize>, fees: mm::Fees) -> Result<()> {
         // check if the account is already initialized
         if ctx.accounts.amm.is_initialized {
             return Err(errors::AmmError::AlreadyInUse.into());
         }
 
+        // account info key
+        let ai_key = ctx.accounts.amm.to_account_info().key.to_bytes();
+
+        let (authority, bump_seed) = Pubkey::find_program_address(
+            &[&ai_key],
+            ctx.program_id,
+        );
+
         let amm = &mut ctx.accounts.amm;
+        amm.fees = fees;
         amm.is_initialized = true;
+        amm.pool_mint = *ctx.accounts.pool_mint.to_account_info().key;
+
 
         Ok(())
     }
@@ -34,12 +43,5 @@ pub struct Initialize<'info> {
     /// CHECK: Safe
     pub authority: AccountInfo<'info>,
     #[account(signer, zero)]
-    pub amm: Box<Account<'info, Amm>>,
-}
-
-#[account]
-pub struct Amm {
-    pub initializer_key: Pubkey,
-    /// Is the swap initialized, with data written to it
-    pub is_initialized: bool,
+    pub amm: Box<Account<'info, mm::Amm>>,
 }

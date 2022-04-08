@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 
+[lib]
+crate-type = ["cdylib", "lib"]
+
+
 [dependencies]
 anchor-client = { version = "0.23.0", optional=true }
 anchor-lang = "^0.23.0"

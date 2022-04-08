@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-export DOCKER_URL=docker.pkg.github.com
+export DOCKER_URL=ghcr.io

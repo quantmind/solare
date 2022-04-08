@@ -15,10 +15,8 @@ GIT_COMMIT=`git log -1 --pretty=%H`
 
 # first argument is the directory of the image
 IMAGE=$1
-# first argument is the directory of the image
-NAME=quantmind-${IMAGE}
 # second optional parameter is the repo name if different from the image name
-REPO_NAME=${2:-${NAME}}
+REPO_NAME=${2:-${IMAGE}}
 # full url of docker repo
 DOCKER_REPO=${DOCKER_URL}/${REPO_NAME}
 

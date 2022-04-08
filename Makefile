@@ -6,17 +6,17 @@ help:
 	@echo ======================================================================================
 
 
-image-solana:			## build solana image
-	@./devops/ecr/buildx-image solana
+image-solare:			## build solare image
+	@./devops/github/buildx-image solare solare
 
-image-solana-local:		## build solana image for local terminal
+image-solare-local:		## build solare image for local terminal
 	@./devops/tools/build-image \
 		local \
-		quantmind-solana-local \
+		quantmind-solare-local \
 		--build-arg USER=$(USER)
 
-solana:				## enter solana image
-	@make image-solana-local
+solare:				## enter solare image
+	@make image-solare-local
 	@./devops/images/local/run
 
 
@@ -24,10 +24,26 @@ build:				## build solana programs
 	cargo build
 
 
-install-dev:			## install anchor version manager (avm)
-	cargo install --features dev
+install-avm:			## install anchor version manager
+	cargo install --git https://github.com/project-serum/anchor avm --locked --force
 
 
-update-anchor:			## install the latest verison of anchor client
+install-anchor:			## install anchor globally
 	avm install latest
 	avm use latest
+
+
+solana-test-validator:		## run the test validator
+	docker-compose up -d
+
+
+solana-test-validator-stop:	## stop the test validator
+	docker-compose down
+
+
+tests:				## run tests
+	@echo "nothing to do"
+
+
+version:			## print solana version in solare image
+	@./devops/images/solare/run solana --version

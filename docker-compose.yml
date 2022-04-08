@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  solana-test-validator:
+    image: quantmind-solare
+    restart: on-failure
+    ports:
+      - 8899:8899
+      - 8900:8900
+    volumes:
+      - ${HOME}/.solana-test-ledger:/test-ledger
+    command: solana-test-validator
+    env_file:
+      - .local.env
+      - .env

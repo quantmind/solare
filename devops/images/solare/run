@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#DOCKER_HOME=/home/
+#
+mkdir -p ${HOME}/.solana-wallets
+#
+touch ${PWD}/.temp/.bash_history
+touch ${PWD}/.local.env
+touch ${PWD}/.env
+
+docker run --rm \
+-v $PWD:/solare \
+--env-file $PWD/.env \
+--env-file $PWD/.local.env \
+quantmind-solare $@

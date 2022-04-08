@@ -6,7 +6,7 @@ Tooling for interacting with [solana](https://solana.com/) blockchain with examp
 ## Setup
 
 * These tools require docker installed into your system
-* Build the solana image with `make image-solana`
+* Build the solare image with `make image-solare`
 * Enter the image with `make solana`
 * Interact with `solana` cli
   ```

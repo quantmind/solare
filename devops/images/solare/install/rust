@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+cmake_version=3.23.0
+cmake=cmake-${cmake_version}
+
+echo "INSTALL CMAKE"
+wget -nv https://github.com/Kitware/CMake/releases/download/v${cmake_version}/${cmake}.tar.gz
+tar -zxf ${cmake}.tar.gz
+cd ${cmake}
+./bootstrap
+make
+make install
+cd ..
+rm -rf ${cmake} ${cmake}.tar.gz
+
+
+echo "INSTALL SOLANA RUST"
+git clone --single-branch https://github.com/solana-labs/bpf-tools.git
+./bpf-tools/build.sh
