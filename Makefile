@@ -21,8 +21,11 @@ solare:				## enter solare image
 
 
 build:				## build solana programs
-	cargo build
+	@./devops/images/solare/run anchor build
 
+
+install-solana:			## install solana SDK
+	@./devops/images/solare/install/solana
 
 install-avm:			## install anchor version manager
 	cargo install --git https://github.com/project-serum/anchor avm --locked --force

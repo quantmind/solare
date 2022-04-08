@@ -9,7 +9,7 @@ touch ${PWD}/.local.env
 touch ${PWD}/.env
 
 docker run --rm \
--v $PWD:/solare \
---env-file $PWD/.env \
---env-file $PWD/.local.env \
-quantmind-solare $@
+    -v $PWD:/solare \
+    --env-file $PWD/.env \
+    --env-file $PWD/.local.env \
+    solare $@

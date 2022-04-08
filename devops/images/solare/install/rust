@@ -11,3 +11,8 @@ rm ${cmake}
 cmake --version
 
 apt install -y ninja-build
+
+echo "INSTALL SOLANA RUST"
+git clone --single-branch https://github.com/solana-labs/bpf-tools.git
+./bpf-tools/build.sh
+rm -rf bpf-tools

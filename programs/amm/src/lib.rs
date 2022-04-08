@@ -31,7 +31,7 @@ pub mod amm {
         let amm = &mut ctx.accounts.amm;
         amm.fees = fees;
         amm.is_initialized = true;
-        amm.pool_mint = *ctx.accounts.pool_mint.to_account_info().key;
+        //amm.pool_mint = *ctx.accounts.pool_mint.to_account_info().key;
 
 
         Ok(())
