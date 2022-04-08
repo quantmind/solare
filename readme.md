@@ -9,7 +9,8 @@ Tooling for interacting with [solana](https://solana.com/) blockchain with examp
 
 * These tools require docker installed into your system
 * Build the solare image with `make image-solare`
-* Enter the image with `make solana`
+* Run the solana test validator `make solana-test-validator`
+* Enter the image with `make solare`
 * Interact with `solana` cli
   ```
   solana --version
