@@ -5,14 +5,18 @@ DOCKER_HOME=/home/${USER}
 mkdir -p ${PWD}/.temp
 mkdir -p ${HOME}/.config
 #
+touch ${PWD}/.temp/.bash_history
 touch ${PWD}/.local.env
 touch ${PWD}/.env
 
-docker run --rm \
+docker run --rm -it \
+-e EDITOR=vim \
+-e HIST_FILE=${DOCKER_HOME}/.bash_history \
 -v $HOME/.ssh:$DOCKER_HOME/.ssh \
 -v $HOME/.config:$DOCKER_HOME/.config \
+-v $PWD/.temp/.bash_history:${DOCKER_HOME}/.bash_history \
 -v $PWD:/solare \
 --env-file $PWD/.env \
 --env-file $PWD/.local.env \
 --network solare_default \
-quantmind-solare-local $@
+quantmind-solare-local bash

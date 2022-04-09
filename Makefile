@@ -8,20 +8,31 @@ help:
 
 image-solare:			## build solare image
 	@./devops/github/build-image solare solare
-
-image-solare-local:		## build solare image for local terminal
 	@./devops/tools/build-image \
 		local \
 		quantmind-solare-local \
 		--build-arg USER=$(USER)
 
 solare:				## enter solare image
-	@make image-solare-local
-	@./devops/images/local/run
+	@./devops/images/local/run-bash
 
 
 build:				## build solana programs
-	@./devops/images/solare/run anchor build
+	@./devops/images/local/run anchor build
+
+
+config-local:			## Configue solana client to use local test net
+	@./devops/images/local/run solana-local
+
+config-dev:			## Configue solana client to use devnet
+	@./devops/images/local/run solana-dev
+
+config-prod:			## Configue solana client to use mainnet
+	@./devops/images/local/run solana-prod
+
+
+deploy:				## build solana programs
+	@./devops/images/local/run anchor deploy
 
 
 install-solana:			## install solana SDK
